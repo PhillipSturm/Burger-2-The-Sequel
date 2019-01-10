@@ -1,7 +1,7 @@
 {
   "name": "Burger-2-The-Sequel",
   "version": "1.0.0",
-  "description": "website that allows you create virtual burgers and to be able to devour them you have to give the name of who ate it.",
+  "description": "Create amazing burgers and devour them!",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

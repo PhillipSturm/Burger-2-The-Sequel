@@ -8,7 +8,7 @@
 			<div class="row">
 			  {{#each burgers}}
 			  	{{#unless this.devoured}}
-				<div class="col-sm-9 text-center">
+				<div class="col-sm-9 text-center burgers">
 					<pre>{{this.id}}. {{this.burger_name}}
 					</pre>
 				  		<!-- {{this.Date}} -->
@@ -18,7 +18,7 @@
 					<form class="devour-form" class="button-size">
             <input type="text" class="form-control username" value="" id="user" required>
 						<input type="hidden" class="burger_id" type="text" value="{{this.id}}"><br>
-						<button type="submit" id="devour" class="btn btn-default">Devour it!</button>
+						<button type="submit" id="devour" class="btn btn-outline-warning">Devour it!</button>
 					</form>
 				</div>
 				{{/unless}}
@@ -40,7 +40,7 @@
 		<div class="col-sm-12 text-center enter_section">
 			<form action="/burgers/create" method="POST">
 				<input type="text" class="form-control" name="burger_name" value="" id="enter_text" required/>
-				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
+				<button type="submit" class="btn btn-danger" id="text-enter-button">Submit</button>
 			</form>
 			<p>Enter a burger you want to eat Click the "Submit" button.</p>
 		</div>
