@@ -1,16 +1,3 @@
-$("#devour").on("click", function (event) {
-  event.preventDefault()
-  if ($("#user").val().trim()) {
-    var user = {
-      burgerId: $(".burger_id").val().trim(),
-      user_name: $("#user").val().trim()
-    }
-    $.post("/burgers/eaten", user).then(function (response) {
-      $.ajax("/burgers/update/" + user.burgerId, { type: "PUT" }).then(function (res) {
-        window.location.reload(true)
-      })
-    })
-  }
+// I am having trouble with my devour routes and cant figure it out right now. //
+// There needs to be a delete method targeting the id chosen and adding the name from the form to say "X ate the __ burger"
 
-})
-// 
