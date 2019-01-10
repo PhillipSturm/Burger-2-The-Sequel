@@ -20,6 +20,7 @@ img {
   animation-name: example;
   animation-duration: 4s;
 }
+/* Don't judge me for this terrible animation  */
 @keyframes example {
     0%   {left:400px; top:0px;}
     25%  {left:200px; top:0px;}
