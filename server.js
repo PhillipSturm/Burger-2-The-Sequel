@@ -1,10 +1,14 @@
 var express = require("express");
 
+// Sets up the Express App
+// =============================================================
 var app = express();
-// Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static("public"));
+var PORT = process.env.PORT || 8080;
 
-// Parse request body as JSON
+// Requiring our models for syncing
+var db = require("./models");
+
+// Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -18,12 +22,20 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-var routes = require("./controllers/burgers_controller");
+// Static directory
+app.use(express.static("public"));
 
-app.use(routes);
+// Routes
+// =============================================================
 
-// listen on port 3000
-var PORT = process.env.PORT || 3000;
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+require("./routes/html-route")(app);
+require("./routes/api-routes")(app);
+
+
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({ force: true }).then(function () {
+  app.listen(PORT, function () {
+    console.log("App listening on PORT " + PORT);
+  });
 });

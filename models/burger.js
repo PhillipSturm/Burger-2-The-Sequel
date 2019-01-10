@@ -1,20 +1,32 @@
-var orm = require("../config/orm");
+module.exports = function(sequelize, DataTypes) {
+  var burger = sequelize.define("burger", {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    burger_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    devoured: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
 
-var burger = {
-  all: function(cb) {
-    orm.all("burgers", function(res) {
-      cb(res);
+  });
+  // Posts are unable to be made without an author
+  burger.associate = function(models) {
+    // We're saying that a Post should belong to an Author
+    // A Post can't be created without an Author due to the foreign key constraint
+    burger.hasOne(models.user, {
+     
     });
-  },
-  create: function(name, cb) {
-    orm.create("burgers", ["burger_name", "devoured"], [name, false], cb);
-  },
-  update: function(id, cb) {
-    var condition = "id=" + id;
-    orm.update("burgers", {
-      devoured: true
-    }, condition, cb);
-  }
+  };
+  return burger;
 };
 
-module.exports = burger;
