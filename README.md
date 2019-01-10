@@ -1,6 +1,7 @@
 # Burger-2-The-Sequel #
 
-# Heroku link https://burger2thesequalizing.herokuapp.com/burgers #
+# Heroku link # 
+### https://burger2thesequalizing.herokuapp.com/burgers ###
 
 # About #
 The world's greatest burger restaurant is at your fingertips! Whatever you could possibly think of Eat-da-burger can make!
