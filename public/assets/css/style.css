@@ -20,6 +20,11 @@ img {
   animation-name: example;
   animation-duration: 4s;
 }
+pre {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
 /* Don't judge me for this terrible animation  */
 @keyframes example {
     0%   {left:400px; top:0px;}
